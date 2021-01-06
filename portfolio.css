@@ -1,0 +1,18 @@
+body {
+  background-color: turquoise;
+  background-image: url(christmas-2869817_1920.jpg);
+}
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 7.5em;
+}
+.infotext {
+  text-align: center;
+  color: whitesmoke;
+  font-size: x-large;
+}
+#div1 {
+  margin: auto;
+  width: 60%;
+}
