@@ -1,0 +1,29 @@
+body {
+  background-color: chartreuse;
+  background-image: url(RuM.png);
+  background-size: cover;
+  color: chartreuse;
+  font-family: fantasy;
+  text-align: center;
+}
+footer {
+  font-size: 2em;
+}
+
+h1 {
+  margin-top: 1cm;
+  color: aliceblue;
+  text-align: center;
+  font-size: 3.5em;
+}
+.infotext {
+  margin-top: 0cm;
+  font-family: fantasy;
+  text-align: center;
+  color: chartreuse;
+  font-size: x-large;
+}
+#div2 {
+  margin: auto;
+  width: 40%;
+}

@@ -25,3 +25,9 @@ canvas {
   margin-right: auto;
   display: block;
 }
+
+r1 {
+  text-align: center;
+  font-family: fantasy;
+  color: chartreuse;
+}
