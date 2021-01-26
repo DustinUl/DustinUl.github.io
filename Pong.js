@@ -6,8 +6,8 @@ let b = random(0, 255);
 var puck = {
   x: width / 2,
   y: height / 2,
-  xspeed: 15,
-  yspeed: 15,
+  xspeed: 0,
+  yspeed: 0,
 };
 
 var paddles = {
@@ -38,12 +38,12 @@ function reset() {
   }
   //Keyscape to restart
   if (keyIsDown(32) && puck.xspeed === 0) {
-    puck.xspeed = puck.xspeed - 15;
-    puck.yspeed = random(-15, 15);
+    puck.xspeed = puck.xspeed + 15;
+    puck.yspeed = 0;
   }
   if (keyIsDown(32) && puck.xspeed === 0.000000001) {
-    puck.xspeed = puck.xspeed + 12;
-    puck.yspeed = random(-15, 15);
+    puck.xspeed = puck.xspeed - 15;
+    puck.yspeed = 0;
   }
 }
 
@@ -99,12 +99,12 @@ function draw() {
   textStyle(ITALIC);
   stroke(90, 255, 210);
   strokeWeight(3);
-  text("(PRESS KEYSCAPE TO CONTINUE THE GAME) ", width / 3.5, height - 10);
+  text("(PRESS KEYSCAPE TO CONTINUE THE GAME) ", width / 3.5, height - 20);
   noStroke();
   fill(90, 255, 210);
   textSize(100);
-  text(Score[0], 200, 100);
-  text(Score[1], width - 250, 100);
+  text(Score[0], 50, 100);
+  text(Score[1], width - 120, 100);
   updatepuck();
   edges();
   playball();
@@ -128,7 +128,7 @@ function draw() {
   if (keyIsDown(38)) {
     paddles.y2 = paddles.y2 - 20;
     //Top-Edge Paddle right
-    if (paddles.y2 <= 7.5) {
+    if (paddles.y2 <= -10) {
       paddles.y2 = paddles.y2 + 20;
     }
   }
@@ -137,7 +137,7 @@ function draw() {
   if (keyIsDown(40)) {
     paddles.y2 = paddles.y2 + 20;
     //Bottom-Edge Paddle right
-    if (paddles.y2 >= height - 150) {
+    if (paddles.y2 >= height - 130) {
       paddles.y2 = paddles.y2 - 20;
     }
   }
@@ -145,7 +145,7 @@ function draw() {
   //Arrow up left side
   if (keyIsDown(87)) {
     paddles.y = paddles.y - 20;
-    if (paddles.y <= 0) {
+    if (paddles.y <= -7.5) {
       paddles.y = paddles.y + 20;
     }
   }
@@ -154,7 +154,7 @@ function draw() {
   if (keyIsDown(83)) {
     paddles.y = paddles.y + 20;
   }
-  if (paddles.y >= height - 150) {
+  if (paddles.y >= height - 130) {
     paddles.y = paddles.y - 20;
   }
 }
