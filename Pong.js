@@ -302,7 +302,7 @@ function draw() {
   }
 
   //Score-Reset
-  if (Score[0] >= 1) {
+  if (Score[0] >= 10) {
     Score[0] = 0;
     Score[1] = 0;
     r = 200;
