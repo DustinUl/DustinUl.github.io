@@ -286,7 +286,7 @@ function draw() {
   }
   if (screen === 3) {
     WinscreenP1();
-    rotation = rotation - 0.01;
+    rotation = rotation - 0.04;
     if (rotation <= 0) {
       rotation = 0;
       screen = 0;
@@ -294,7 +294,7 @@ function draw() {
   }
   if (screen === 4) {
     WinscreenP2();
-    rotation = rotation - 0.01;
+    rotation = rotation - 0.04;
     if (rotation <= 0) {
       rotation = 0;
       screen = 0;
@@ -302,7 +302,7 @@ function draw() {
   }
 
   //Score-Reset
-  if (Score[0] >= 10) {
+  if (Score[0] >= 1) {
     Score[0] = 0;
     Score[1] = 0;
     r = 200;
