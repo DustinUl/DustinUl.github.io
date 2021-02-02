@@ -67,11 +67,6 @@ function Startscreen() {
       ellipse(x + 650, y + i, 10);
     }
   }
-  fill(120);
-  rect(width / 2 - 235, 250, 50, 50);
-  rect(width / 2 - 235, 340, 50, 50);
-  rect(width / 2 + 165, 250, 50, 50);
-  rect(width / 2 + 165, 340, 50, 50);
 
   stroke(255, 255, 255);
   strokeWeight(4);
@@ -101,8 +96,8 @@ function Startscreen() {
   fill(120);
   rect(width / 2 - 235, 250, 50, 50);
   rect(width / 2 - 235, 340, 50, 50);
-  rect(width / 2 + 165, 250, 50, 50);
-  rect(width / 2 + 165, 340, 50, 50);
+  rect(500, 250, 50, 50);
+  rect(500, 340, 50, 50);
 
   fill(50);
   textStyle(BOLD);
