@@ -93,6 +93,7 @@ function Startscreen() {
   fill(0);
   text("Start", width / 2 - 30, 323);
 
+
   fill(120);
   rect(width / 2 - 235, 250, 50, 50);
   rect(width / 2 - 235, 340, 50, 50);
