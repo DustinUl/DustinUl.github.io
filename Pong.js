@@ -73,22 +73,26 @@ function Startscreen() {
   rect(width / 2 + 165, 250, 50, 50);
   rect(width / 2 + 165, 340, 50, 50);
 
-  stroke(r + 255, r + 255, r + 255);
+  stroke(255, 255, 255);
   strokeWeight(4);
-  fill(r + 50, r + 205, r + 50);
   textSize(90);
   textStyle(BOLD);
-  text("RETRO PONG", width / 2 - 305, 105);
+  fill(120);
+  text("RETRO PONG", width / 2 - 310, 105);
+  fill(50, 205, 50);
   text("RETRO PONG", width / 2 - 305, 100);
   fill(255, 0, 0);
-  text("RETRO PONG", width / 2 - 305, 550);
+  text("RETRO PONG", width / 2 - 300, 560);
+  fill(120);
   text("RETRO PONG", width / 2 - 305, 555);
 
-  fill(r + 50, r + 205, r + 50);
+  fill(50, 205, 50);
   textSize(20);
   text("PLayer 1", width / 2 - 250, 200);
+  fill(255, 0, 0);
   text("PLayer 2", width / 2 + 150, 200);
 
+  fill(255, 0, 0);
   textStyle(ITALIC);
   rect(width / 2 - 108, 300, 200, 30);
   fill(0);
@@ -335,16 +339,16 @@ function draw() {
   }
   if (screen === 3) {
     WinscreenP1();
-    rotation = rotation - 0.036;
-    if (rotation <= -1) {
+    rotation = rotation - 0.04;
+    if (rotation <= -2) {
       rotation = 1;
       screen = 0;
     }
   }
   if (screen === 4) {
     WinscreenP2();
-    rotation = rotation - 0.036;
-    if (rotation <= -1) {
+    rotation = rotation - 0.04;
+    if (rotation <= -2) {
       rotation = 1;
       screen = 0;
     }
