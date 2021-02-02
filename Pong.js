@@ -1,7 +1,14 @@
+//The Score of each Player in an ARRAY
 Score = [0, 0];
+
+//Backroundcolour VARIABLE
 let r = 200;
-screen = 0;
-rotation = 1;
+
+//Screen VARIABLE to change between the diffrent screens
+let screen = 0;
+
+//rotation for the Winningscreen
+let rotation = 1;
 
 var puck = {
   x: width / 2,
@@ -21,7 +28,9 @@ function Startscreen() {
   let y = 5;
   let x = 5;
   let r = 0;
+
   background(0);
+
   for (let i = 0; i < width; i = i + 25) {
     fill(r + 255, r + 255, r + 255, 50);
     noStroke();
@@ -38,6 +47,7 @@ function Startscreen() {
     ellipse(x + i, y + 500, 10);
     ellipse(x + i, y + 550, 10);
     ellipse(x + i, y + 600, 10);
+
     for (let i = 0; i < height; i = i + 25) {
       fill(r + 255, r + 255, r + 255, 5);
       noStroke();
@@ -57,17 +67,49 @@ function Startscreen() {
       ellipse(x + 650, y + i, 10);
     }
   }
+  fill(120);
+  rect(width / 2 - 235, 250, 50, 50);
+  rect(width / 2 - 235, 340, 50, 50);
+  rect(width / 2 + 165, 250, 50, 50);
+  rect(width / 2 + 165, 340, 50, 50);
+
   stroke(r + 255, r + 255, r + 255);
   strokeWeight(4);
   fill(r + 50, r + 205, r + 50);
   textSize(90);
   textStyle(BOLD);
-  text("RETRO PONG", width / 2 - 305, 110);
+  text("RETRO PONG", width / 2 - 305, 105);
+  text("RETRO PONG", width / 2 - 305, 100);
+  fill(255, 0, 0);
+  text("RETRO PONG", width / 2 - 305, 550);
+  text("RETRO PONG", width / 2 - 305, 555);
+
+  fill(r + 50, r + 205, r + 50);
   textSize(20);
+  text("PLayer 1", width / 2 - 250, 200);
+  text("PLayer 2", width / 2 + 150, 200);
+
   textStyle(ITALIC);
   rect(width / 2 - 108, 300, 200, 30);
   fill(0);
   text("Start", width / 2 - 30, 323);
+
+  fill(120);
+  rect(width / 2 - 235, 250, 50, 50);
+  rect(width / 2 - 235, 340, 50, 50);
+  rect(width / 2 + 165, 250, 50, 50);
+  rect(width / 2 + 165, 340, 50, 50);
+
+  fill(50);
+  textStyle(BOLD);
+  textSize(40);
+  strokeWeight(3);
+  text("W", width / 2 - 230, 290);
+  textSize(45);
+  text("S", width / 2 - 225, 381);
+  strokeWeight(2);
+  triangle(525, 260, 510, 290, 540, 290);
+  triangle(525, 380, 510, 350, 540, 350);
 }
 
 function WinscreenP1() {
@@ -174,19 +216,18 @@ function WinscreenP2() {
 
 function mouseClicked() {
   if (
-    mouseClicked &&
+    mouseIsPressed &&
     mouseX > 230 &&
     mouseX < 430 &&
     mouseY > 300 &&
     mouseY < 330
   ) {
-    console.log("clicked");
     screen++;
   }
 }
 
 function reset() {
-  if (puck.x >= width - 12.5) {
+  if (puck.x >= width - 20.9) {
     puck.xspeed = puck.xspeed * -1;
     puck.x = width / 2;
     puck.y = height / 2;
@@ -195,7 +236,7 @@ function reset() {
     puck.yspeed = 0;
     r = r - 10;
   }
-  if (puck.x <= +12.5) {
+  if (puck.x <= +20.9) {
     puck.xspeed = puck.xspeed * -1;
     puck.x = width / 2;
     puck.y = height / 2;
@@ -206,11 +247,11 @@ function reset() {
   }
   //Keyscape to restart
   if (keyIsDown(32) && puck.xspeed === 0) {
-    puck.xspeed = puck.xspeed + 15;
+    puck.xspeed = puck.xspeed + 16;
     puck.yspeed = 0;
   }
   if (keyIsDown(32) && puck.xspeed === 0.000000001) {
-    puck.xspeed = puck.xspeed - 15;
+    puck.xspeed = puck.xspeed - 16;
     puck.yspeed = 0;
   }
 }
@@ -221,7 +262,7 @@ function updatepuck() {
 }
 
 function edges() {
-  if (puck.y <= 25 || puck.y >= height - 25) {
+  if (puck.y <= 15 || puck.y >= height - 15) {
     puck.yspeed = puck.yspeed * -1;
   }
 }
@@ -245,12 +286,12 @@ function paddleright() {
 
 function ballbounce() {
   if (
-    (puck.x >= paddles.x2 - 25 &&
-      puck.y + 12.5 >= paddles.y2 &&
-      puck.y - 12.5 <= paddles.y2 + 100) ||
-    (puck.x <= paddles.x + 25 &&
-      puck.y + 12.5 >= paddles.y &&
-      puck.y - 12.5 <= paddles.y + 100)
+    (puck.x >= paddles.x2 - 30 &&
+      puck.y + 15 >= paddles.y2 &&
+      puck.y - 15 <= paddles.y2 + 100) ||
+    (puck.x <= paddles.x + 40 &&
+      puck.y + 15 >= paddles.y &&
+      puck.y - 15 <= paddles.y + 100)
   ) {
     puck.xspeed = puck.xspeed * -1;
     puck.yspeed = random(-8, 8);
@@ -261,18 +302,24 @@ function ballbounce() {
 function draw() {
   background(0, r);
   middleline();
+
+  //
   fill(200);
   noStroke();
   textSize(20);
   stroke(50, 205, 50);
   strokeWeight(1.4);
   text("(PRESS KEYSCAPE TO CONTINUE THE GAME) ", width / 6, height - 20);
+
+  //
   noStroke();
   fill(50, 205, 50);
   textSize(70);
   textStyle(BOLD);
   text(Score[0], 140, 70);
   text(Score[1], width - 190, 70);
+
+  //
   updatepuck();
   edges();
   paddleleft();
@@ -280,23 +327,25 @@ function draw() {
   playball();
   ballbounce();
   reset();
+
+  //
   if (screen === 0) {
     Startscreen();
     mouseClicked();
   }
   if (screen === 3) {
     WinscreenP1();
-    rotation = rotation - 0.04;
-    if (rotation <= 0) {
-      rotation = 0;
+    rotation = rotation - 0.036;
+    if (rotation <= -1) {
+      rotation = 1;
       screen = 0;
     }
   }
   if (screen === 4) {
     WinscreenP2();
-    rotation = rotation - 0.04;
-    if (rotation <= 0) {
-      rotation = 0;
+    rotation = rotation - 0.036;
+    if (rotation <= -1) {
+      rotation = 1;
       screen = 0;
     }
   }
